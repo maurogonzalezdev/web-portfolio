@@ -12,12 +12,12 @@ import { FlowbiteService } from './services/flowbite.service';
 import { LoaderSpinnerComponent } from './components/loader-spinner/loader-spinner.component';
 import { NgxSpinnerComponent } from 'ngx-spinner';
 import { delay, Observable, of } from 'rxjs';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { CommonModule, isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoaderSpinnerComponent],
+  imports: [RouterOutlet, LoaderSpinnerComponent, CommonModule],
   templateUrl: './app.component.html',
   styles: [],
 })
@@ -35,7 +35,9 @@ isBrowser?: boolean;
     afterRender(()=>{
       this._flowbiteService.loadFlowbite((flowbite) => {
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-
+        setTimeout(()=>{
+          document.querySelector('#loader')?.remove();
+        }, 400)
         console.log('Flowbite loaded');
       });
     })
@@ -70,6 +72,6 @@ isBrowser?: boolean;
   }
 
   private _emitLoaderStatus(): Observable<boolean> {
-    return of(false).pipe(delay(1100));
+    return of(false).pipe(delay(1000));
   }
 }

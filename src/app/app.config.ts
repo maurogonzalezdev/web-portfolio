@@ -22,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes,
-      withViewTransitions({ skipInitialTransition: false })
+      withViewTransitions({skipInitialTransition: false})
     ),
     provideClientHydration(),
 
