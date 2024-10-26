@@ -22,19 +22,9 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes,
-      withViewTransitions(
-{skipInitialTransition: false}
-      )
+      withViewTransitions({ skipInitialTransition: false })
     ),
     provideClientHydration(),
-    provideHttpClient(withInterceptorsFromDi()),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-    importProvidersFrom(
-      NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
-    ),
+
   ],
 };

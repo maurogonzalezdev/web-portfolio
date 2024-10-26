@@ -70,6 +70,6 @@ isBrowser?: boolean;
   }
 
   private _emitLoaderStatus(): Observable<boolean> {
-    return of(false).pipe(delay(1500));
+    return of(false).pipe(delay(1100));
   }
 }
