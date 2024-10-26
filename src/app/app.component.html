@@ -13,4 +13,8 @@
 </div>
 }
 <router-outlet></router-outlet>
+}@else if(isServer){
+  <div style="display: none;">
+    <router-outlet></router-outlet>
+  </div>
 }
