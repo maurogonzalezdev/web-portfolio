@@ -37,7 +37,7 @@ isBrowser?: boolean;
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         setTimeout(()=>{
           document.querySelector('#loader')?.remove();
-        }, 400)
+        }, 900)
         console.log('Flowbite loaded');
       });
     })
