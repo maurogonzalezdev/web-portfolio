@@ -36,9 +36,12 @@ export function app(): express.Express {
         url: `${protocol}://${headers.host}${originalUrl}`,
         publicPath: browserDistFolder,
         providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-        inlineCriticalCss: true
+        inlineCriticalCss: true,
       })
-      .then((html) => res.send(html))
+      .then((html) => {
+        res.send(html);
+        console.log('hola');
+      })
       .catch((err) => next(err));
   });
 
@@ -52,6 +55,7 @@ function run(): void {
   const server = app();
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
+
   });
 }
 
