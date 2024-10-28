@@ -36,8 +36,8 @@ isBrowser?: boolean;
       this._flowbiteService.loadFlowbite((flowbite) => {
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         setTimeout(()=>{
-          document.querySelector('#loader')?.remove();
-        }, 900)
+          document.querySelector('#loader')?.classList.add('invisible');
+        }, 1100)
         console.log('Flowbite loaded');
       });
     })
