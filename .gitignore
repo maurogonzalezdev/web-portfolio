@@ -177,4 +177,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Local Netlify folder
+.netlify
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,angular,windows,node
